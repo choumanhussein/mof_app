@@ -1,0 +1,25 @@
+<h1>Property details</h1>
+<p>Property: <%= @rental.name %></p>
+<p>Rent: <%= @rental.rent %></p>
+<p>Address: <%= @rental.address %></p>
+<p>Building Age: <%= @rental.year %></p>
+<p>Remarks: <%= @rental.memo %></p>
+
+<div class="station_form">
+  <% n = 0 %>
+  <% @rental.nearest_stations.each do |nearest_station| %>
+    <h2>nearest station<%= n += 1 %></h2>
+      <p>
+        <strong>Name Of Railway:</strong><%= nearest_station.route %>
+      </p>
+      <p>
+        <strong>Station Name:</strong><%= nearest_station.station %>
+      </p>
+      <p>
+        <strong>Minute to reach:</strong><%= nearest_station.time %>
+      </p>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_rental_path %> |
+<%= link_to 'Back', rentals_path %>

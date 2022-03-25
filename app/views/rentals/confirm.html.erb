@@ -1,0 +1,15 @@
+<h3>Are You Sure ?</h3>
+<%= form_with(model: @rental, url: rentals_path, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :rent %>
+  <%= form.hidden_field :address %>
+  <%= form.hidden_field :year %>
+  <%= form.hidden_field :memo %>
+  <p>Property:<%= @rental.name %></p>
+  <p>Rent:<%= @rental.rent %></p>
+  <p>Adress:<%= @rental.address %></p>
+  <p>Building Age:<%= @rental.year %></p>
+  <p>Remarks:<%= @rental.memo %></p>
+  <%= form.submit  "Register" %>
+  <%= form.submit "return", name: 'back' %>
+<% end %>

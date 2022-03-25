@@ -1,0 +1,27 @@
+<h1>List of Properties</h1>
+<p><%= notice %></p>
+<%= link_to 'Add A New Property', new_rental_path %>
+<table>
+  <tr>
+    <th>Property</th>
+    <th>Rent</th>
+    <th>Address</th>
+    <th>Building </th>
+    <th>Remarks</th>
+　</tr>
+
+<% @rentals.each do |rental| %>
+  <tr>
+    <td><%= rental.name %></td>
+    <td><%= rental.rent.to_s(:delimited)%> </td>
+    <td><%= rental.address %></td>
+    <td><%= rental.year %></td>
+    <td><%= rental.memo %></td>
+    <td><%= link_to "SHow", rental_path(rental.id) %></td>
+    <td><%= link_to "Edit", edit_rental_path(rental.id), data: { confirm: 'Do You really want to edit it ?' } %></td>
+    <td><%= link_to "Destroy", rental_path(rental.id), method: :delete, data: { confirm: 'Do you really want to delete it ?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
